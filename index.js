@@ -1,6 +1,9 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const mYmarkDown = require('./Develop/utils/generateMarkdown');
+const generateMarkdown = require('./Develop/utils/generateMarkdown');
+
 
 // README APP Questions
 inquirer
@@ -16,9 +19,10 @@ inquirer
       name: 'description',
     },
     {
-      type: 'input',
+      type: 'list',
       message: 'Table of Conetents?',
       name: 'Table of Contents',
+      choices: ['Y', 'N'],
     },
     {
       type: 'input',
@@ -35,9 +39,6 @@ inquirer
       message: 'License',
       name: 'license',
       choices: ['MIT', 'ISC',],
-      filter(val) {
-        return val.toLowerCase()
-      }
     },
     {
       type: 'input',
@@ -46,16 +47,26 @@ inquirer
     },
     {
       type: 'input',
-      message: 'If you have any questions, please email me?',
-      name: 'Questions (email)',
+      message: 'What is your GitHub username?',
+      name: 'Github',
+    },
+    {
+      type: 'input',
+      message: 'What is your email address?',
+      name: 'Questions',
     },
   ])
 
 
-  .then((answers) => fs.appendFile('log.txt', JSON.stringify(answers), (err) =>
-    err ? console.log(err) : console.log('Thanks for you responses')));
-
-
+  .then((answers) => {
+    const mark = generateMarkdown(answers)
+    fs.writeFile('README1.md', mark, function(err) {
+      if(err){
+        console.log("Could not generate README file")
+  }
+}
+  )});
+  
 
 
 

@@ -1,97 +1,40 @@
-// // TODO: Create a function that returns a license badge based on which license is passed in
-// // If there is no license, return an empty string
-// function renderLicenseBadge(license) {}
-
-// // TODO: Create a function that returns the license link
-// // If there is no license, return an empty string
-// function renderLicenseLink(license) {}
-
-// // TODO: Create a function that returns the license section of README
-// // If there is no license, return an empty string
-// function renderLicenseSection(license) {}
-
 // // TODO: Create a function to generate markdown for README
-// function generateMarkdown(data) {
-//   return `
 
-//   # ${data.title}
+function generateMarkdown(answers) {
+  return `
 
-//   ## Description
-//   ${data.description}
+# ${answers.title}
 
-//   ## Table of Contents
+## Description
+${answers.description}
 
-//   - [Installation](#installation)
-//   - [Usage](#usage)
-//   - [Credits](#credits)
-//   - [License](#license)
-
-// ## Installation
-
-// # Usage
-// To use this app, ${data.Usage}
-
-// ## Credits
-
-// ## License
-
-// The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
-
-// ## Badges
-
-// ![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
-
-// Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
-
-// ## Tests
-
-// Go the extra mile and write tests for your application. Then provide examples on how to run them here.
-
-
-
-class markdown {
-  static generateMarkdown(data) {
-    return `
-   
-    # ${answers.title}
-
-    ## ${answers.description}
-
-    ## Table of Contents
-    - [Installation](#installation)
-    - [Usage](#usage)
-    - [Credits](#credits)
-    - [License](#license)
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [License](#license)
+- [Questions](#questions)
     
-    ## ${answers.installation}
+## Installation
+${answers.installation}
 
-    ## ${answers.usage}
+## Usage
+${answers.usage}
 
-    ## ${answers.contributing}
+## Credits
+${answers.contributing}
 
-    ## ${answers.license}
-    ## Badges 
-    ![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
-  
+## Licenses
+${answers.license} 
 
+![badmath](https://img.shields.io/apm/l/vim-mode)
+    
+## GitHub Profile
+${answers.Githhub}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    `;
-  }
+## Questions
+${answers.questions}`;
 }
 
 
-
-// module.exports = generateMarkdown;
+module.exports = generateMarkdown;
