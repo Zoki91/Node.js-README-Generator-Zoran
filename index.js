@@ -1,7 +1,6 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-const mYmarkDown = require('./Develop/utils/generateMarkdown');
 const generateMarkdown = require('./Develop/utils/generateMarkdown');
 
 
@@ -31,56 +30,33 @@ inquirer
     },
     {
       type: 'input',
-      message: 'How will you use this application?',
+      message: 'Provide instructions and examples for use?',
       name: 'usage',
     },
     {
       type: 'list',
       message: 'License',
       name: 'license',
-      choices: ['MIT', 'ISC',],
-    },
-    {
-      type: 'input',
-      message: 'Who is contributing?',
-      name: 'contributing',
+      choices: ['ISC', 'MIT', 'AGPL', 'GPL v3'],
     },
     {
       type: 'input',
       message: 'What is your GitHub username?',
-      name: 'Github',
+      name: 'github',
     },
     {
       type: 'input',
       message: 'What is your email address?',
-      name: 'Questions',
+      name: 'questions',
     },
   ])
 
-
   .then((answers) => {
     const mark = generateMarkdown(answers)
-    fs.writeFile('README1.md', mark, function(err) {
+    fs.writeFile('README.md', mark, function(err) {
       if(err){
         console.log("Could not generate README file")
   }
 }
   )});
   
-
-
-
-
-
-
-
-
-//   function generateMarkdown(data){}
-// // TODO: Create a function to write README file
-// // function writeToFile(fileName, data) {}
-
-// // TODO: Create a function to initialize app
-// function init() {}
-
-// // Function call to initialize app
-// init();
