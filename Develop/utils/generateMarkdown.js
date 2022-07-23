@@ -27,10 +27,6 @@ ${answers.installation}
 ${answers.usage}
 
 
-## Credits
-${answers.contributing}
-
-
 ## License
 ${answers.license} 
 
